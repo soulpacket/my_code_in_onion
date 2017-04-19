@@ -1,0 +1,12 @@
+for doc in x:
+     u_daily = sorted(doc['daily'], reverse=True)
+     if len(u_daily) and u_daily[0]>= START.strftime('%Y%m%d'):
+         flag = datetime.datetime.strptime(u_daily[0], '%Y%m%d')
+         i = 0
+         while flag >= START:
+             type_days['B'] += 1
+             i += 1
+             if len(u_daily) > i:
+                 flag = datetime.datetime.strptime(u_daily[i], '%Y%m%d')
+             else:
+                 flag = datetime.datetime(1970,1,1)
